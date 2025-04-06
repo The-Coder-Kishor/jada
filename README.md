@@ -26,7 +26,7 @@ YADA (Yet Another Diet Assistant) is a prototype software application designed t
 
 The following UML class diagram illustrates the main classes, their attributes, important methods, and relationships within the YADA system.
 
-<img src="./images/UML.jpg" alt="UML Class Diagram" width="800"/>
+![UML Class Diagram](images/UML.jpg)
 
 **Diagram Explanation:**
 
@@ -60,31 +60,31 @@ The following sequence diagrams illustrate key interactions within the system:
 
 This diagram shows the process of adding a new basic food item to the database. It involves loading the database, creating the `BasicFood` object via the `FoodItem` interface (orchestrated likely by `FoodDatabase`), and saving the updated database.
 
-<img src="./images/seq1 (Adding Basic Food).jpg" alt="Adding Basic Food Sequence Diagram" width="800"/>
+![Adding Basic Food Sequence Diagram](<images/seq1 (Adding Basic Food).jpg>)
 
 **Scenario 2: Creating Composite Food**
 
 This diagram illustrates how a user creates a composite food item. It involves loading the database, creating the `CompositeFood` object, adding its constituent components (which can be `BasicFood` or other `CompositeFood` items) potentially in a loop, calculating the total calories by summing component calories, and finally saving the database.
 
-<img src="./images/seq2 (Creating Composite Food).jpg" alt="Creating Composite Food Sequence Diagram" width="800"/>
+![Creating Composite Food Sequence Diagram](<images/seq2 (Creating Composite Food).jpg>)
 
 **Scenario 4: Calculating Calorie Requirement**
 
 This diagram demonstrates how the system calculates the user's target daily calories. The `UserProfile` initiates the request, delegating to the `TargetCalorieCalcStrats` object. This object selects the appropriate `BMRCalculationStrategy` based on user preference or system default and invokes its `apply_formula` method, passing the `UserProfile` data. The calculated target calories are then returned.
 
-<img src="./images/seq3 (Calculating Calorie Requirement).jpg" alt="Calculating Calorie Requirement Sequence Diagram" width="800"/>
+![Calculating Calorie Requirement Sequence Diagram](<images/seq3 (Calculating Calorie Requirement).jpg>)
 
 **Scenario 4: Creating/Loading Daily Logs**
 
 This diagram shows the initialization of a `DailyLog` for a day, either by reading existing entries from a file or starting fresh. It then loops through the process of adding new log entries, where each addition involves creating a `LogEntry`, associating it with a `FoodItem`, and calculating the calories for the entry based on servings and the `FoodItem`'s calories per serving. The log is saved eventually (e.g., on exit or user command).
 
-<img src="./images/seq4 (Creating Daily Logs).jpg" alt="Creating Daily Logs Sequence Diagram" width="800"/>
+![Creating Daily Logs Sequence Diagram](<images/seq4 (Creating Daily Logs).jpg>)
 
 **Scenario 5: Undoing Actions in Daily Log**
 
 This diagram illustrates the undo functionality. When the user selects undo, the `DailyLog` retrieves the last action performed. Depending on whether the last action was adding or deleting an entry, the `DailyLog` either recreates the deleted `LogEntry` (fetching necessary data like calories from the `FoodItem`) or destroys the previously added `LogEntry`. This suggests an implementation using the Command pattern or storing a history of actions/states.
 
-<img src="./images/seq5 (Undo Daily Logs).jpg" alt="Undoing Actions in Daily Log Sequence Diagram" width="800"/>
+![Undoing Actions in Daily Log Sequence Diagram](<images/seq5 (Undo Daily Logs).jpg>)
 
 ---
 

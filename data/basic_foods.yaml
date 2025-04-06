@@ -1,0 +1,16 @@
+basic_foods:
+- identifier: Apple
+  keywords:
+  - fruit
+  - snack
+  calories_per_serving: 95.0
+- identifier: Chicken Breast
+  keywords:
+  - protein
+  - meat
+  calories_per_serving: 165.0
+- identifier: Brown Rice
+  keywords:
+  - grain
+  - carb
+  calories_per_serving: 215.0

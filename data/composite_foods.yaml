@@ -1,0 +1,27 @@
+composite_foods:
+- identifier: Chicken and Rice Bowl
+  keywords:
+  - meal lunch
+  components:
+  - food_id: Chicken Breast
+    quantity: 1.5
+  - food_id: Brown Rice
+    quantity: 1.0
+- identifier: Fruit Salad
+  keywords:
+  - dessert
+  - snack
+  components:
+  - food_id: Apple
+    quantity: 1.0
+- identifier: Full Meal
+  keywords:
+  - dinner
+  - complete
+  components:
+  - food_id: Chicken Breast
+    quantity: 1.5
+  - food_id: Brown Rice
+    quantity: 1.0
+  - food_id: Apple
+    quantity: 1.0

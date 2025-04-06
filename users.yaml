@@ -1,0 +1,8 @@
+- name: Anirudh Sankar
+  height: 180.0
+  weight: 113.0
+  age: 21
+  gender: Male
+  activity_level: Sedentary
+  target_calorie_calc_strategy: HarrisBenedict
+  target_calorie: 2853.0

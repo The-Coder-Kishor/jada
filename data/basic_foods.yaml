@@ -20,3 +20,94 @@ basic_foods:
   - burger
   - quarter_pound
   calories_per_serving: 540.0
+- identifier: Salmon
+  keywords:
+  - protein
+  - fish
+  - omega3
+  calories_per_serving: 206.0
+- identifier: Broccoli
+  keywords:
+  - vegetable
+  - fiber
+  calories_per_serving: 55.0
+- identifier: Sweet Potato
+  keywords:
+  - vegetable
+  - carb
+  calories_per_serving: 112.0
+- identifier: Greek Yogurt
+  keywords:
+  - dairy
+  - protein
+  - breakfast
+  calories_per_serving: 100.0
+- identifier: Avocado
+  keywords:
+  - fruit
+  - healthy_fat
+  calories_per_serving: 234.0
+- identifier: Quinoa
+  keywords:
+  - grain
+  - protein
+  - carb
+  calories_per_serving: 222.0
+- identifier: Spinach
+  keywords:
+  - vegetable
+  - leafy_green
+  calories_per_serving: 23.0
+- identifier: Almonds
+  keywords:
+  - nuts
+  - snack
+  - healthy_fat
+  calories_per_serving: 164.0
+- identifier: Egg
+  keywords:
+  - protein
+  - breakfast
+  calories_per_serving: 72.0
+- identifier: Banana
+  keywords:
+  - fruit
+  - snack
+  - potassium
+  calories_per_serving: 105.0
+- identifier: Oatmeal
+  keywords:
+  - grain
+  - breakfast
+  - fiber
+  calories_per_serving: 166.0
+- identifier: Black Beans
+  keywords:
+  - protein
+  - fiber
+  - legume
+  calories_per_serving: 227.0
+- identifier: Whole Wheat Bread
+  keywords:
+  - grain
+  - sandwich
+  - carb
+  calories_per_serving: 81.0
+- identifier: Tofu
+  keywords:
+  - protein
+  - vegetarian
+  - soy
+  calories_per_serving: 94.0
+- identifier: Orange
+  keywords:
+  - fruit
+  - vitamin_c
+  - snack
+  calories_per_serving: 62.0
+- identifier: Peanut Butter
+  keywords:
+  - spread
+  - protein
+  - healthy_fat
+  calories_per_serving: 188.0

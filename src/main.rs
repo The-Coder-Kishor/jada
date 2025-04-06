@@ -17,6 +17,7 @@ fn main() {
         println!("3. Modify Existing User");
         println!("4. User Session");
         println!("5. Save and Exit");
+        println!("Select an option (1-5): ");
 
         let mut input = String::new();
         io::stdin().read_line(&mut input).expect("Failed to read input");
@@ -165,7 +166,8 @@ fn food_database_menu(food_db: &mut FoodDatabase) {
         println!("1. Add a Basic Food Item");
         println!("2. Add a Composite Food Item");
         println!("3. Search Foods");
-        println!("4. Return to Main Menu");
+        println!("4. Add Food from Website");
+        println!("5. Return to Main Menu");
         println!();
         println!("Enter your choice: ");
         std::io::stdin().read_line(&mut choice).unwrap();
@@ -304,13 +306,62 @@ fn food_database_menu(food_db: &mut FoodDatabase) {
                     }
                 }
             }
-            "4" => break,
+            "4" => {
+                // Add food from website
+                add_food_from_website(food_db);
+            }
+            "5" => break,
             _ => println!("Invalid choice, please try again."),
         }
     }
 }
 
-// New function to manage food logs
+fn add_food_from_website(food_db: &mut FoodDatabase) {
+    // Get website URL from user
+    let mut url = String::new();
+    println!("Enter the website URL for the food information: ");
+    std::io::stdin().read_line(&mut url).expect("Failed to read input");
+    let mut url = url.trim().to_string();
+    
+    if url.is_empty() {
+        println!("URL cannot be empty. Returning to menu.");
+        return;
+    }
+    
+    // Add https:// prefix if not present
+    if !url.starts_with("http://") && !url.starts_with("https://") {
+        url = format!("https://{}", url);
+        println!("Added https:// prefix to URL: {}", url);
+    }
+    
+    println!("Processing website at: {}", url);
+    println!("This may take a few moments as we analyze the webpage...");
+    
+    // Create a tokio runtime to run the async function
+    let rt = match tokio::runtime::Runtime::new() {
+        Ok(rt) => rt,
+        Err(e) => {
+            println!("Failed to create runtime: {}", e);
+            return;
+        }
+    };
+    
+    // Execute the async function within the runtime
+    match rt.block_on(food_db.add_food_from_website_with_edit(&url)) {
+        Ok(Some(food)) => {
+            println!("Successfully added food '{}' with {} calories per serving.", 
+                food.identifier, food.calories_per_serving);
+        },
+        Ok(None) => {
+            println!("Food was not added to the database.");
+        },
+        Err(e) => {
+            println!("Error adding food from website: {}", e);
+            println!("Try again with a different URL or check if Ollama is running.");
+        }
+    }
+}
+
 fn food_log_menu(food_log: &mut FoodLog, food_db: &FoodDatabase) {
     loop {
         println!("\nFood Log Menu - Current Date: {}", food_log.current_date);

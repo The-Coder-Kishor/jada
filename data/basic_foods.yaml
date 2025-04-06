@@ -14,3 +14,9 @@ basic_foods:
   - grain
   - carb
   calories_per_serving: 215.0
+- identifier: quarter_pounder_with_cheese
+  keywords:
+  - cheese
+  - burger
+  - quarter_pound
+  calories_per_serving: 540.0

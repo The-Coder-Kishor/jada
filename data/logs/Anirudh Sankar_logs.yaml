@@ -5,3 +5,6 @@ daily_logs:
   - food_id: Chicken Breast
     servings: 2.0
     calories: 165.0
+  - food_id: quarter_pounder_with_cheese
+    servings: 1.0
+    calories: 540.0
